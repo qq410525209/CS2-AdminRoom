@@ -10,5 +10,8 @@
     "ButtonTeleported": "Zum Button {0} teleportiert!",
     "RoomDeleted": "Admin-Raum Einstellungen für die aktuelle Karte wurden gelöscht!",
     "MapHasButtons": "Diese Karte hat {0} Admin-Buttons!",
-    "MapHasAdminRoom": "Diese Karte hat einen Admin-Raum festgelegt!"
+    "MapHasAdminRoom": "Diese Karte hat einen Admin-Raum festgelegt!",
+    "NoAdminRoomMark": "Diese Karte hat keinen Admin-Raum!",
+    "HasAdminRoomMark": "Diese Karte hat einen Admin-Raum eingerichtet!",
+    "NoAdminRoomSet": "Admin-Raum Position ist für diese Karte nicht festgelegt!"
 } 

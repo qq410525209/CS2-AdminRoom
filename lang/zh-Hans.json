@@ -10,5 +10,8 @@
     "ButtonTeleported": "已传送至按钮 {0} 的位置!",
     "RoomDeleted": "已删除当前地图的管理员房间设置!",
     "MapHasButtons": "该地图存在 {0} 个管理员按钮!",
-    "MapHasAdminRoom": "该地图已设置管理员房间!"
+    "MapHasAdminRoom": "该地图已设置管理员房间!",
+    "NoAdminRoomMark": "该地图没有管理员房间!",
+    "HasAdminRoomMark": "该地图已设置管理员房间!",
+    "NoAdminRoomSet": "当前地图未设置管理员房间!"
 }

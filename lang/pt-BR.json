@@ -10,5 +10,8 @@
     "ButtonTeleported": "Teleportado para o botão {0}!",
     "RoomDeleted": "Configurações da sala admin para o mapa atual foram excluídas!",
     "MapHasButtons": "Este mapa tem {0} botões admin!",
-    "MapHasAdminRoom": "Este mapa tem uma sala admin definida!"
+    "MapHasAdminRoom": "Este mapa tem uma sala admin definida!",
+    "NoAdminRoomMark": "Este mapa não tem sala admin!",
+    "HasAdminRoomMark": "Este mapa tem uma sala admin configurada!",
+    "NoAdminRoomSet": "Posição da sala admin não está definida para este mapa!"
 } 

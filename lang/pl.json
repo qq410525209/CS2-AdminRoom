@@ -10,5 +10,8 @@
     "ButtonTeleported": "Przeteleportowano do przycisku {0}!",
     "RoomDeleted": "Ustawienia pokoju admina dla obecnej mapy zostały usunięte!",
     "MapHasButtons": "Ta mapa ma {0} przycisków admina!",
-    "MapHasAdminRoom": "Ta mapa ma ustawiony pokój admina!"
+    "MapHasAdminRoom": "Ta mapa ma ustawiony pokój admina!",
+    "NoAdminRoomMark": "Ta mapa nie ma pokoju admina!",
+    "HasAdminRoomMark": "Ta mapa ma ustawiony pokój admina!",
+    "NoAdminRoomSet": "Pozycja pokoju admina nie jest ustawiona dla tej mapy!"
 } 

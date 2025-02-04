@@ -6,7 +6,6 @@ using CounterStrikeSharp.API.Modules.Utils;
 using CounterStrikeSharp.API.Modules.Commands;
 using CS2_AdminRoom.Models;
 using System.Text.Json;
-using Vector = CounterStrikeSharp.API.Modules.Utils.Vector;
 using ModelVector = CS2_AdminRoom.Models.Vector;
 using CounterStrikeSharp.API.Modules.Admin;
 using CounterStrikeSharp.API.Modules.Entities;
@@ -40,7 +39,6 @@ namespace CS2_AdminRoom
         public override void Load(bool hotReload)
         {
             RegisterListener<Listeners.OnMapStart>(OnMapStart);
-            RegisterEventHandler<EventRoundStart>(OnRoundStart);
             LoadRoomData();
 
             AddCommand("css_addadminroom", "Add admin room at current position", CommandAddAdminRoom);
@@ -109,6 +107,36 @@ namespace CS2_AdminRoom
             // 如果启用了默认搜索
             if (Config.DefaultSearch.Enabled)
             {
+                // 先检查是否有 NOAdminRoom 标记
+                var mapData = RoomData.Maps[mapName];
+                var noAdminRoom = mapData.Rooms.FirstOrDefault(r => r.Name == "NOAdminRoom");
+                if (noAdminRoom != null)
+                {
+                    Console.WriteLine($"[AdminRoom] Map {mapName} is marked as NOAdminRoom, skipping search");
+                    // 向有权限的玩家发送消息
+                    foreach (var player in Utilities.GetPlayers())
+                    {
+                        if (player == null || !player.IsValid || !HasPermissions(player, Config.DefaultSearch.Permissions)) continue;
+                        player.PrintToChat($"{Prefix} {Localizer["NoAdminRoomMark"]}");
+                    }
+                    return;
+                }
+
+                // 检查是否已有 AdminRoom 标记
+                var adminRoom = mapData.Rooms.FirstOrDefault(r => r.Name == "AdminRoom");
+                if (adminRoom != null)
+                {
+                    Console.WriteLine($"[AdminRoom] Map {mapName} already has AdminRoom, skipping search");
+                    // 向有权限的玩家发送消息
+                    foreach (var player in Utilities.GetPlayers())
+                    {
+                        if (player == null || !player.IsValid || !HasPermissions(player, Config.DefaultSearch.Permissions)) continue;
+                        player.PrintToChat($"{Prefix} {Localizer["HasAdminRoomMark"]}");
+                    }
+                    return;
+                }
+
+                // 搜索按钮实体
                 var buttons = FindAllButtons();
                 var matchedButtons = new List<CBaseButton>();
 
@@ -123,93 +151,28 @@ namespace CS2_AdminRoom
                     }
                 }
 
-                // 向所有有权限的玩家发送消息
-                foreach (var player in Utilities.GetPlayers())
+                if (matchedButtons.Count > 0)
                 {
-                    if (player == null || !player.IsValid) continue;
-                    if (!HasPermissions(player, Config.DefaultSearch.Permissions)) continue;
-
-                    // 检查地图是否有 NOAdminRoom 标记
-                    var mapData = RoomData.Maps[mapName];
-                    var noAdminRoom = mapData.Rooms.FirstOrDefault(r => r.Name == "NOAdminRoom");
-                    if (noAdminRoom != null)
+                    // 向有权限的玩家发送消息
+                    foreach (var player in Utilities.GetPlayers())
                     {
-                        player.PrintToChat($"{Prefix} {Localizer["NoAdminRoomMark"]}");
-                        continue;
-                    }
-
-                    // 检查地图是否已设置 AdminRoom
-                    var adminRoom = mapData.Rooms.FirstOrDefault(r => r.Name == "AdminRoom");
-                    if (adminRoom != null)
-                    {
-                        player.PrintToChat($"{Prefix} {Localizer["HasAdminRoomMark"]}");
-                        continue;
-                    }
-
-                    // 如果找到了按钮但没有设置 AdminRoom
-                    if (matchedButtons.Count > 0)
-                    {
+                        if (player == null || !player.IsValid || !HasPermissions(player, Config.DefaultSearch.Permissions)) continue;
                         player.PrintToChat($"{Prefix} {Localizer["MapHasButtons", $"{ChatColors.Green}{matchedButtons.Count}{ChatColors.Default}"]}");
                         player.PrintToChat($"{Prefix} {Localizer["NoAdminRoomSet"]}");
                     }
                 }
-            }
-        }
-
-        private HookResult OnRoundStart(EventRoundStart @event, GameEventInfo info)
-        {
-            string mapName = Server.MapName;
-            
-            // 如果启用了默认搜索
-            if (Config.DefaultSearch.Enabled)
-            {
-                var buttons = FindAllButtons();
-                var matchedButtons = new List<CBaseButton>();
-
-                foreach (var button in buttons)
+                else
                 {
-                    if (button == null || !button.IsValid || button.Entity == null || string.IsNullOrEmpty(button.Entity.Name)) continue;
-
-                    string buttonName = button.Entity.Name;
-                    if (Config.Keywords.Any(keyword => buttonName.Contains(keyword, StringComparison.OrdinalIgnoreCase)))
+                    // 如果没有找到按钮，添加 NOAdminRoom 标记
+                    var roomData = new RoomData
                     {
-                        matchedButtons.Add(button);
-                    }
-                }
-
-                // 向所有有权限的玩家发送消息
-                foreach (var player in Utilities.GetPlayers())
-                {
-                    if (player == null || !player.IsValid) continue;
-                    if (!HasPermissions(player, Config.DefaultSearch.Permissions)) continue;
-
-                    // 检查地图是否有 NOAdminRoom 标记
-                    var mapData = RoomData.Maps[mapName];
-                    var noAdminRoom = mapData.Rooms.FirstOrDefault(r => r.Name == "NOAdminRoom");
-                    if (noAdminRoom != null)
-                    {
-                        player.PrintToChat($"{Prefix} {Localizer["NoAdminRoomMark"]}");
-                        continue;
-                    }
-
-                    // 检查地图是否已设置 AdminRoom
-                    var adminRoom = mapData.Rooms.FirstOrDefault(r => r.Name == "AdminRoom");
-                    if (adminRoom != null)
-                    {
-                        player.PrintToChat($"{Prefix} {Localizer["HasAdminRoomMark"]}");
-                        continue;
-                    }
-
-                    // 如果找到了按钮但没有设置 AdminRoom
-                    if (matchedButtons.Count > 0)
-                    {
-                        player.PrintToChat($"{Prefix} {Localizer["MapHasButtons", $"{ChatColors.Green}{matchedButtons.Count}{ChatColors.Default}"]}");
-                        player.PrintToChat($"{Prefix} {Localizer["NoAdminRoomSet"]}");
-                    }
+                        Name = "NOAdminRoom"
+                    };
+                    mapData.Rooms.Add(roomData);
+                    SaveRoomData();
+                    Console.WriteLine($"[AdminRoom] No admin buttons found in {mapName}, marked as NOAdminRoom");
                 }
             }
-
-            return HookResult.Continue;
         }
 
         private void LogCommand(CCSPlayerController player, string command, string result)
@@ -274,85 +237,6 @@ namespace CS2_AdminRoom
             player.PrintToChat($"{Prefix} {Localizer["RoomSet"]}");
         }
 
-        private Vector FindSafePosition(Vector targetPos)
-        {
-            // 定义要检查的偏移量
-            var offsets = new[]
-            {
-                // 中心点上方的不同高度
-                new Vector(0, 0, Config.TeleportHeight),
-                new Vector(0, 0, 100),
-                new Vector(0, 0, 70),
-                
-                // 前后左右 + 高度
-                new Vector(100, 0, Config.TeleportHeight),  // 前
-                new Vector(-100, 0, Config.TeleportHeight), // 后
-                new Vector(0, 100, Config.TeleportHeight),  // 左
-                new Vector(0, -100, Config.TeleportHeight), // 右
-                
-                // 斜向偏移
-                new Vector(120, 120, Config.TeleportHeight),   // 前左
-                new Vector(120, -120, Config.TeleportHeight),  // 前右
-                new Vector(-120, 120, Config.TeleportHeight),  // 后左
-                new Vector(-120, -120, Config.TeleportHeight)  // 后右
-            };
-            
-            foreach (var offset in offsets)
-            {
-                var checkPos = targetPos + offset;
-                if (IsPositionValid(checkPos))
-                {
-                    return checkPos;
-                }
-            }
-            
-            // 如果所有检查都失败，返回默认位置
-            return targetPos + new Vector(0, 0, Config.TeleportHeight);
-        }
-
-        private bool IsPositionValid(Vector pos)
-        {
-            // 检查位置是否在水下或虚空
-            if (pos.Z < 0)
-            {
-                return false;
-            }
-
-            // 检查位置是否在实体内部
-            var entities = Utilities.FindAllEntitiesByDesignerName<CBaseEntity>("func_wall");
-            foreach (var entity in entities)
-            {
-                if (entity == null || !entity.IsValid || entity.AbsOrigin == null) continue;
-
-                // 计算与实体的距离
-                var distance = (entity.AbsOrigin - pos).Length();
-                if (distance < 32) // 如果太靠近实体
-                {
-                    return false;
-                }
-            }
-
-            // 如果所有检查都通过，则认为位置有效
-            return true;
-        }
-
-        private void TeleportToSafePosition(CCSPlayerController player, Vector targetPos)
-        {
-            if (player == null || !player.IsValid || player.PlayerPawn == null || !player.PlayerPawn.IsValid) return;
-            var pawn = player.PlayerPawn.Value;
-            if (pawn == null || !pawn.IsValid) return;
-
-            // 找到安全的传送位置
-            var safePos = FindSafePosition(targetPos);
-
-            // 传送玩家
-            pawn.Teleport(
-                safePos,
-                new QAngle(0, 0, 0),  // 保持玩家视角不变
-                new Vector(0, 0, 0)    // 停止所有移动
-            );
-        }
-
         private void CommandAdminRoom(CCSPlayerController? player, CommandInfo command)
         {
             if (player == null || !player.IsValid) return;
@@ -379,8 +263,16 @@ namespace CS2_AdminRoom
                 return;
             }
 
-            // 使用安全传送方法
-            TeleportToSafePosition(player, new Vector(adminRoom.Position.X, adminRoom.Position.Y, adminRoom.Position.Z));
+            var pawn = player.PlayerPawn.Value;
+            if (pawn == null || !pawn.IsValid) return;
+
+            // 传送玩家
+            pawn.Teleport(
+                new CounterStrikeSharp.API.Modules.Utils.Vector(adminRoom.Position.X, adminRoom.Position.Y, adminRoom.Position.Z),
+                new QAngle(0, 0, 0),
+                new CounterStrikeSharp.API.Modules.Utils.Vector(0, 0, 0)
+            );
+
             player.PrintToChat($"{Prefix} {Localizer["RoomTeleported"]}");
         }
 
@@ -445,13 +337,19 @@ namespace CS2_AdminRoom
                 
                 menu.Add(button.Entity.Name, (p, option) =>
                 {
-                    if (p == null || !p.IsValid) return;
+                    if (p == null || !p.IsValid || p.PlayerPawn == null) return;
+                    var pawn = p.PlayerPawn.Value;
+                    if (pawn == null || !pawn.IsValid) return;
 
+                    // 传送玩家到按钮位置
                     if (button.AbsOrigin == null) return;
                     var position = button.AbsOrigin;
-
-                    // 使用安全传送方法
-                    TeleportToSafePosition(p, position);
+                    position.Z += Config.TeleportHeight;
+                    pawn.Teleport(
+                        position,
+                        new QAngle(0, 0, 0),
+                        new CounterStrikeSharp.API.Modules.Utils.Vector(0, 0, 0)
+                    );
 
                     LogCommand(p, "css_sadminroom", $"Success - Teleported to button {button.Entity.Name}");
                     p.PrintToChat($"{Prefix} {Localizer["ButtonTeleported", $"{ChatColors.Green}{button.Entity.Name}{ChatColors.Default}"]}");

@@ -5,7 +5,6 @@ namespace CS2_AdminRoom
 {
     public class CS2_AdminRoomConfig : BasePluginConfig
     {
-        public override int Version { get; set; } = 3;
 
         [JsonPropertyName("Keywords")]
         public List<string> Keywords { get; set; } = new()
@@ -23,6 +22,14 @@ namespace CS2_AdminRoom
             "round",
             "kill",
             "restart"
+        };
+
+        [JsonPropertyName("ButtonTypes")]
+        public List<string> ButtonTypes { get; set; } = new()
+        {
+            "func_button",
+            "func_physical_button",
+            "func_rot_button"
         };
 
         [JsonPropertyName("Permissions")]
@@ -53,7 +60,7 @@ namespace CS2_AdminRoom
     public class DefaultSearchConfig
     {
         [JsonPropertyName("Enabled")]
-        public bool Enabled { get; set; } = false;
+        public bool Enabled { get; set; } = true;
 
         [JsonPropertyName("Permissions")]
         public List<string> Permissions { get; set; } = new() { "@css/root", "@css/admin" };

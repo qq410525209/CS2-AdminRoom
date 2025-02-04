@@ -2,11 +2,6 @@
 
 [English](#english) | [中文](#中文)
 
-
-## Preview / 预览
-
-![Plugin Preview](test.png)
-
 ## English
 
 ### Description
@@ -57,9 +52,7 @@ The plugin uses two configuration files:
 4. Configure permissions in `CS2-AdminRoom.json`
 5. Restart the server
 
-Note: If you have already installed the WASDMenuAPI, you should delete the WASDSharedAPI.dll from this plugin's compiled files list to prevent conflicts.
-
-Search keywords are from [sm-plugin-AdminRoom](https://github.com/srcdslab/sm-plugin-AdminRoom/blob/master/addons/sourcemod/configs/adminroom/adminroom.cfg)
+Note: If you have already installed WASDMenuAPI, please delete the WASDSharedAPI.dll from the plugin's compiled output directory after compilation.
 
 Contributions of admin room coordinates are welcome!
 
@@ -115,8 +108,6 @@ Contributions of admin room coordinates are welcome!
 4. 在 `CS2-AdminRoom.json` 中配置权限
 5. 重启服务器
 
-注意：如果您已安装WASDMenuAPI，在编译该插件时应该删除该插件编译后文件列表里的WASDSharedAPI.dll，防止冲突。
-
-搜索关键词来自 [sm-plugin-AdminRoom](https://github.com/srcdslab/sm-plugin-AdminRoom/blob/master/addons/sourcemod/configs/adminroom/adminroom.cfg)
+注意：如果您已安装WASDMenuAPI，在编译该插件后请删除编译后插件生成目录里文件列表中的WASDSharedAPI.dll。
 
 欢迎贡献调关房坐标信息！

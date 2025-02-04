@@ -10,5 +10,8 @@
     "ButtonTeleported": "버튼 {0}으로 이동했습니다!",
     "RoomDeleted": "현재 맵의 관리자 방 설정이 삭제되었습니다!",
     "MapHasButtons": "이 맵에는 {0}개의 관리자 버튼이 있습니다!",
-    "MapHasAdminRoom": "이 맵에는 관리자 방이 설정되어 있습니다!"
+    "MapHasAdminRoom": "이 맵에는 관리자 방이 설정되어 있습니다!",
+    "NoAdminRoomMark": "이 맵에는 관리자 방이 없습니다!",
+    "HasAdminRoomMark": "이 맵에는 관리자 방이 설정되어 있습니다!",
+    "NoAdminRoomSet": "이 맵의 관리자 방 위치가 설정되지 않았습니다!"
 } 

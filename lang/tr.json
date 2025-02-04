@@ -10,5 +10,8 @@
     "ButtonTeleported": "{0} düğmesine ışınlandınız!",
     "RoomDeleted": "Mevcut harita için admin odası ayarları silindi!",
     "MapHasButtons": "Bu haritada {0} admin düğmesi var!",
-    "MapHasAdminRoom": "Bu haritada admin odası ayarlanmış!"
+    "MapHasAdminRoom": "Bu haritada admin odası ayarlanmış!",
+    "NoAdminRoomMark": "Bu haritada admin odası yok!",
+    "HasAdminRoomMark": "Bu haritada admin odası ayarlanmış!",
+    "NoAdminRoomSet": "Bu harita için admin odası konumu ayarlanmamış!"
 } 

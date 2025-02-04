@@ -10,5 +10,8 @@
     "ButtonTeleported": "ボタン{0}にテレポートしました！",
     "RoomDeleted": "現在のマップの管理者ルーム設定が削除されました！",
     "MapHasButtons": "このマップには{0}個の管理者ボタンがあります！",
-    "MapHasAdminRoom": "このマップには管理者ルームが設定されています！"
+    "MapHasAdminRoom": "このマップには管理者ルームが設定されています！",
+    "NoAdminRoomMark": "このマップには管理者ルームがありません！",
+    "HasAdminRoomMark": "このマップには管理者ルームが設定されています！",
+    "NoAdminRoomSet": "このマップの管理者ルーム位置が設定されていません！"
 } 

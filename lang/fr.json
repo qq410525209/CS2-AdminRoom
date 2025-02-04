@@ -10,5 +10,8 @@
     "ButtonTeleported": "Téléporté vers le bouton {0} !",
     "RoomDeleted": "Les paramètres de la salle admin pour la carte actuelle ont été supprimés !",
     "MapHasButtons": "Cette carte a {0} boutons admin !",
-    "MapHasAdminRoom": "Cette carte a une salle admin définie !"
+    "MapHasAdminRoom": "Cette carte a une salle admin définie !",
+    "NoAdminRoomMark": "Cette carte n'a pas de salle admin !",
+    "HasAdminRoomMark": "Cette carte a une salle admin définie !",
+    "NoAdminRoomSet": "La position de la salle admin n'est pas définie pour cette carte !"
 } 

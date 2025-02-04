@@ -10,5 +10,8 @@
     "ButtonTeleported": "Teleported to button {0}!",
     "RoomDeleted": "Admin room settings for current map have been deleted!",
     "MapHasButtons": "This map has {0} admin buttons!",
-    "MapHasAdminRoom": "This map has an admin room set!"
+    "MapHasAdminRoom": "This map has an admin room set!",
+    "NoAdminRoomMark": "This map has no admin room!",
+    "HasAdminRoomMark": "This map has an admin room set!",
+    "NoAdminRoomSet": "Admin room position is not set for this map!"
 }
