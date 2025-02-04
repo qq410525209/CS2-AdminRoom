@@ -1,0 +1,14 @@
+{
+    "NoPermission": "Nie masz uprawnień do użycia tej komendy!",
+    "NoPosition": "Nie udało się uzyskać twojej pozycji!",
+    "RoomSet": "Pozycja pokoju admina została ustawiona!",
+    "NoRoom": "Brak ustawionego pokoju admina dla obecnej mapy!",
+    "RoomTeleported": "Przeteleportowano do pokoju admina!",
+    "NoWASDMenu": "WASDMenuAPI nie jest zainstalowane, skontaktuj się z administratorem!",
+    "NoButtonsFound": "Nie znaleziono pasujących przycisków!",
+    "ButtonsFound": "Znaleziono {0} pasujących przycisków!",
+    "ButtonTeleported": "Przeteleportowano do przycisku {0}!",
+    "RoomDeleted": "Ustawienia pokoju admina dla obecnej mapy zostały usunięte!",
+    "MapHasButtons": "Ta mapa ma {0} przycisków admina!",
+    "MapHasAdminRoom": "Ta mapa ma ustawiony pokój admina!"
+} 

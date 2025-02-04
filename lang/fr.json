@@ -1,0 +1,14 @@
+{
+    "NoPermission": "Vous n'avez pas la permission d'utiliser cette commande !",
+    "NoPosition": "Impossible d'obtenir votre position !",
+    "RoomSet": "La position de la salle admin a été définie !",
+    "NoRoom": "Aucune salle admin définie pour la carte actuelle !",
+    "RoomTeleported": "Téléporté vers la salle admin !",
+    "NoWASDMenu": "WASDMenuAPI n'est pas installé, contactez l'administrateur !",
+    "NoButtonsFound": "Aucun bouton correspondant trouvé !",
+    "ButtonsFound": "{0} boutons correspondants trouvés !",
+    "ButtonTeleported": "Téléporté vers le bouton {0} !",
+    "RoomDeleted": "Les paramètres de la salle admin pour la carte actuelle ont été supprimés !",
+    "MapHasButtons": "Cette carte a {0} boutons admin !",
+    "MapHasAdminRoom": "Cette carte a une salle admin définie !"
+} 

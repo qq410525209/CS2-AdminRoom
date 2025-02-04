@@ -1,0 +1,14 @@
+{
+    "NoPermission": "Bu komutu kullanma yetkiniz yok!",
+    "NoPosition": "Konumunuz alınamadı!",
+    "RoomSet": "Admin odası pozisyonu ayarlandı!",
+    "NoRoom": "Mevcut harita için admin odası ayarlanmamış!",
+    "RoomTeleported": "Admin odasına ışınlandınız!",
+    "NoWASDMenu": "WASDMenuAPI kurulu değil, lütfen yönetici ile iletişime geçin!",
+    "NoButtonsFound": "Eşleşen düğme bulunamadı!",
+    "ButtonsFound": "{0} eşleşen düğme bulundu!",
+    "ButtonTeleported": "{0} düğmesine ışınlandınız!",
+    "RoomDeleted": "Mevcut harita için admin odası ayarları silindi!",
+    "MapHasButtons": "Bu haritada {0} admin düğmesi var!",
+    "MapHasAdminRoom": "Bu haritada admin odası ayarlanmış!"
+} 

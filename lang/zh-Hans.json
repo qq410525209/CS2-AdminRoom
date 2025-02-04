@@ -1,0 +1,14 @@
+{
+    "NoPermission": "你没有权限使用该命令!",
+    "NoPosition": "无法获取你的位置!",
+    "RoomSet": "管理员房间位置已设置!",
+    "NoRoom": "当前地图未设置管理员房间!",
+    "RoomTeleported": "已传送至管理员房间!",
+    "NoWASDMenu": "WASDMenuAPI 未安装，请联系管理员!",
+    "NoButtonsFound": "未找到任何匹配的按钮!",
+    "ButtonsFound": "找到 {0} 个匹配的按钮!",
+    "ButtonTeleported": "已传送至按钮 {0} 的位置!",
+    "RoomDeleted": "已删除当前地图的管理员房间设置!",
+    "MapHasButtons": "该地图存在 {0} 个管理员按钮!",
+    "MapHasAdminRoom": "该地图已设置管理员房间!"
+}

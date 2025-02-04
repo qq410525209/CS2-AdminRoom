@@ -1,0 +1,14 @@
+{
+    "NoPermission": "¡No tienes permiso para usar este comando!",
+    "NoPosition": "¡No se pudo obtener tu posición!",
+    "RoomSet": "¡La posición de la sala admin ha sido establecida!",
+    "NoRoom": "¡No hay sala admin establecida para el mapa actual!",
+    "RoomTeleported": "¡Teletransportado a la sala admin!",
+    "NoWASDMenu": "¡WASDMenuAPI no está instalado, contacta al administrador!",
+    "NoButtonsFound": "¡No se encontraron botones coincidentes!",
+    "ButtonsFound": "¡Se encontraron {0} botones coincidentes!",
+    "ButtonTeleported": "¡Teletransportado al botón {0}!",
+    "RoomDeleted": "¡La configuración de la sala admin para el mapa actual ha sido eliminada!",
+    "MapHasButtons": "¡Este mapa tiene {0} botones admin!",
+    "MapHasAdminRoom": "¡Este mapa tiene una sala admin establecida!"
+} 

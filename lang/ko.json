@@ -1,0 +1,14 @@
+{
+    "NoPermission": "이 명령어를 사용할 권한이 없습니다!",
+    "NoPosition": "위치를 가져오는데 실패했습니다!",
+    "RoomSet": "관리자 방 위치가 설정되었습니다!",
+    "NoRoom": "현재 맵에 설정된 관리자 방이 없습니다!",
+    "RoomTeleported": "관리자 방으로 이동했습니다!",
+    "NoWASDMenu": "WASDMenuAPI가 설치되지 않았습니다. 관리자에게 문의하세요!",
+    "NoButtonsFound": "일치하는 버튼을 찾을 수 없습니다!",
+    "ButtonsFound": "{0}개의 일치하는 버튼을 찾았습니다!",
+    "ButtonTeleported": "버튼 {0}으로 이동했습니다!",
+    "RoomDeleted": "현재 맵의 관리자 방 설정이 삭제되었습니다!",
+    "MapHasButtons": "이 맵에는 {0}개의 관리자 버튼이 있습니다!",
+    "MapHasAdminRoom": "이 맵에는 관리자 방이 설정되어 있습니다!"
+} 

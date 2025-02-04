@@ -1,0 +1,14 @@
+{
+    "NoPermission": "Du hast keine Berechtigung, diesen Befehl zu verwenden!",
+    "NoPosition": "Deine Position konnte nicht ermittelt werden!",
+    "RoomSet": "Admin-Raum Position wurde festgelegt!",
+    "NoRoom": "Kein Admin-Raum für die aktuelle Karte festgelegt!",
+    "RoomTeleported": "Zum Admin-Raum teleportiert!",
+    "NoWASDMenu": "WASDMenuAPI ist nicht installiert, bitte kontaktiere den Administrator!",
+    "NoButtonsFound": "Keine passenden Buttons gefunden!",
+    "ButtonsFound": "{0} passende Buttons gefunden!",
+    "ButtonTeleported": "Zum Button {0} teleportiert!",
+    "RoomDeleted": "Admin-Raum Einstellungen für die aktuelle Karte wurden gelöscht!",
+    "MapHasButtons": "Diese Karte hat {0} Admin-Buttons!",
+    "MapHasAdminRoom": "Diese Karte hat einen Admin-Raum festgelegt!"
+} 

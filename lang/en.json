@@ -1,0 +1,14 @@
+{
+    "NoPermission": "You don't have permission to use this command!",
+    "NoPosition": "Failed to get your position!",
+    "RoomSet": "Admin room position has been set!",
+    "NoRoom": "No admin room set for current map!",
+    "RoomTeleported": "Teleported to admin room!",
+    "NoWASDMenu": "WASDMenuAPI is not installed, please contact admin!",
+    "NoButtonsFound": "No matching buttons found!",
+    "ButtonsFound": "Found {0} matching buttons!",
+    "ButtonTeleported": "Teleported to button {0}!",
+    "RoomDeleted": "Admin room settings for current map have been deleted!",
+    "MapHasButtons": "This map has {0} admin buttons!",
+    "MapHasAdminRoom": "This map has an admin room set!"
+}

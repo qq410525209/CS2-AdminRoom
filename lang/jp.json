@@ -1,0 +1,14 @@
+{
+    "NoPermission": "このコマンドを使用する権限がありません！",
+    "NoPosition": "位置の取得に失敗しました！",
+    "RoomSet": "管理者ルームの位置が設定されました！",
+    "NoRoom": "現在のマップに管理者ルームが設定されていません！",
+    "RoomTeleported": "管理者ルームにテレポートしました！",
+    "NoWASDMenu": "WASDMenuAPIがインストールされていません。管理者に連絡してください！",
+    "NoButtonsFound": "一致するボタンが見つかりません！",
+    "ButtonsFound": "{0}個の一致するボタンが見つかりました！",
+    "ButtonTeleported": "ボタン{0}にテレポートしました！",
+    "RoomDeleted": "現在のマップの管理者ルーム設定が削除されました！",
+    "MapHasButtons": "このマップには{0}個の管理者ボタンがあります！",
+    "MapHasAdminRoom": "このマップには管理者ルームが設定されています！"
+} 
